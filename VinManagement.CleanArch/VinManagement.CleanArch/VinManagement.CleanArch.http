@@ -1,0 +1,6 @@
+@VinManagement.CleanArch_HostAddress = http://localhost:5072
+
+GET {{VinManagement.CleanArch_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
