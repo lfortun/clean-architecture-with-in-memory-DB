@@ -1,0 +1,104 @@
+{
+  "info": {
+    "name": "VinManagement.CleanArch",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "VIN Management API - Clean Architecture with in-memory DB"
+  },
+  "item": [
+    {
+      "name": "Vins",
+      "item": [
+        {
+          "name": "Create VIN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"1HGCM82633A004352\",\n  \"vehicleMake\": \"Honda\",\n  \"vehicleModel\": \"Accord\",\n  \"year\": 2003\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/vins",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vins"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All VINs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/vins",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vins"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get VIN by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/vins/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vins", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update VIN",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"1HGCM82633A004352\",\n  \"vehicleMake\": \"Honda\",\n  \"vehicleModel\": \"Civic\",\n  \"year\": 2024\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/vins/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vins", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete VIN",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/vins/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "vins", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}

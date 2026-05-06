@@ -1,0 +1,47 @@
+## .NET
+.vs/
+.vscode/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Build results
+[Dd]ebugPublic/
+[Rr]eleasePublic/
+[Ll]ast[Bb]uild[Ll]og/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+## Visual Studio / JetBrains
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.ide/
+.idea/
+*.resharper
+*.DotSettings
+*.DotSettings.user
+
+## Mac
+.DS_Store
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
