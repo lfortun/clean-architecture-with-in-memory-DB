@@ -52,6 +52,15 @@ NEVER break this direction. No circular dependencies.
 - All I/O methods MUST be async with `*Async` suffix
 - Use `async/await`, not `.Result` or `.Wait()`
 
+## Authentication
+
+JWT Bearer authentication is configured:
+- `IJwtTokenGenerator` interface in Domain, `JwtTokenGenerator` in Infrastructure
+- `ICredentialValidator` interface in Domain, `DefaultCredentialValidator` in Infrastructure
+- `IAuthService` in Application, `AuthService` in Application (uses both interfaces)
+- `AuthController` in Web API exposes `POST /api/auth/login`
+- Protected controllers use `[Authorize]` attribute
+
 ## CRUD Feature Pattern
 
 When adding a new feature (e.g., "Vehicle"), follow this structure:
@@ -87,6 +96,15 @@ dotnet sln add Infrastructure
 ## Common Packages
 - `Microsoft.EntityFrameworkCore.InMemory` (Infrastructure)
 - `Swashbuckle.AspNetCore` (Web API)
+- `FluentValidation.AspNetCore` (Web API)
+
+## DTO Validation
+
+DTO validation uses **FluentValidation** in the Web API layer:
+- Validators live in `VinManagement.CleanArch/Validators/`
+- Use `AbstractValidator<T>` for each DTO
+- Register with `AddFluentValidationAutoValidation()` and `AddValidatorsFromAssemblyContaining<Program>()` in `Program.cs`
+- Do NOT use `System.ComponentModel.DataAnnotations` on DTOs
 
 ## Testing
 

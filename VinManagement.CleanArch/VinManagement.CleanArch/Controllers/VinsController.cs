@@ -1,11 +1,13 @@
 using Application.DTOs;
 using Application.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace VinManagement.CleanArch.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class VinsController : ControllerBase
 {
     private readonly IVinService _service;

@@ -3,6 +3,7 @@ using Domain.Repositories;
 using Domain.Services;
 using Infrastructure.Persistence;
 using Infrastructure.Repositories;
+using Infrastructure.Security;
 using Infrastructure.Validators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +26,12 @@ public static class ServiceCollectionExtensions
         services.Configure<DataOneValidatorOptions>(
             configuration.GetSection(DataOneValidatorOptions.SectionName));
         services.AddScoped<IVinValidator, DataOneVinValidator>();
+
+        services.Configure<JwtSettings>(
+            configuration.GetSection(JwtSettings.SectionName));
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddScoped<ICredentialValidator, DefaultCredentialValidator>();
+        services.AddScoped<IAuthService, AuthService>();
 
         return services;
     }
